@@ -7,11 +7,24 @@
 
 int acounter(void)
 {
-
+    static int counter = 0;
+    char c = getchar();
+    if (c != '.')
+    {
+        if (c == 'a')
+        {
+            counter++;
+        }
+        return acounter();
+    }
+    else
+    {
+        return counter;
+    }
 }
 
 int main(int argc, char const *argv[])
 {
-    
+    printf("%d", acounter());   
     return 0;
 }
